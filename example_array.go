@@ -5,6 +5,7 @@ import "fmt"
 
 func main() {
 	test_array_a()
+	test_array_c()
 }
 
 //数组有特定的用处，但是却有一些呆板，所以在 Go 语
@@ -25,12 +26,31 @@ func test_array_a()  {
 }
 
 func test_array_b()  {
-	var arrAge = [5]int{18, 20, 15, 22, 16}
-	var arrLazy = [...]int{5, 6, 7, 8, 22}
-	var arrLazy = []int{5, 6, 7, 8, 22}
-	var arrKeyValue = [5]string{3: "Chris", 4: "Ron"}
-	var arrKeyValue = []string{3: "Chris", 4: "Ron"}
+	//var arrAge = [5]int{18, 20, 15, 22, 16}
+	//var arrLazy = [...]int{5, 6, 7, 8, 22}
+	//var arrLazy = []int{5, 6, 7, 8, 22}
+	//var arrKeyValue = [5]string{3: "Chris", 4: "Ron"}
+	//var arrKeyValue = []string{3: "Chris", 4: "Ron"}
 }
 
 //把一个大数组传递给函数会消耗很多内存。2种方法可以避免这
 //传递数组的指针(一般使用切片)2使用数组的切片
+func test_array_c()  {
+	//切片在未初始化之前默认为 nil，长度为 0。
+	var arr1 = [5]int{1,2,3,4,5}
+	var identifier []int//定义
+	var identifier2 []int
+	//初始化切片 var slice1 []type = arr1[start:end]
+	identifier = arr1[0:2]//初始化
+	identifier2 = arr1[:]
+	for i:=0;i<len(identifier);i++ {
+		fmt.Printf("slice at %d is %d",i,identifier[i])
+	}
+	for i:=0;i<len(identifier2);i++ {
+		fmt.Printf("slice at %d is %d",i,identifier2[i])
+	}
+}
+
+func test_array_d()  {
+	
+}
