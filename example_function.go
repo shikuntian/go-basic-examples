@@ -78,3 +78,29 @@ func test_fun_g(a int,b int)(min int,max int)  {
 }
 
 //改变外部的变量:传递指针
+//传递变长参数
+//概念:
+//变参函数:如果一个函数最后一个参数采用...type的形式,那么这个函数就可以处理一个变长的参数,这个长度可以为0.
+func test_fun_i(int a){
+    fmt.Printf("the first param is %d\n",a)
+    test_fun_h(4,2,3,4,6)
+}
+}
+func test_fun_h(a int,len ...int){
+    fmt.Printf("the first param is %d\n",a)
+    for i:=0;i<len(len);i++{
+        fmt.Printf("the second param is %d\n",len[i])
+    }
+}
+//defer和追踪
+//defer的作用就是让某个语句或函数在return前执行,
+//defer可以传参数,多个defer的执行顺序是逆序执行
+func test_fun_m(){
+    fmt.Print("this is a begin")
+    defer test_fun_i(1)
+    defer fmt.Print("this is defer begin")
+    fmt.Print("the is a end")
+    //输出为this is a begin the is a end然后是执行test_fun_i
+}
+//defer使用场景:1.关闭文件流2.解锁一个加锁的资源3.打印最终报告4关闭数据库连接
+//递归函数
