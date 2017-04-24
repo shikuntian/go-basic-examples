@@ -50,7 +50,9 @@ func test_array_c()  {
 		fmt.Printf("slice at %d is %d",i,identifier2[i])
 	}
 }
-
-func test_array_d()  {
-	
-}
+//切片slice是对数组的的一个连续片段的引用(该数组我们称之为相关的数组,通常是匿名的),所以切片是一个引用类型.
+//切片的一些特性:1.切片是可索引的,可由len()函数获取长度,给定项的切片索引可能比相关数组的相同元素的索引小。和数组不同的是，切片的长度可以在运行时修
+//改，最小为 0 最大为相关数组的长度：切片是一个 长度可变的数组。
+//cap()切片的最大容量,0 <= len(s) <= cap(s)
+//声明:var identifier []type 初始化:var slice1 []type = arr1[start:end] var slice1 []type = arr1[:] var slice1 []type = arr1[:]
+//slice1 = slice1[:len(slice1)-1] s := []int{1,2,3} s := [3]int{1,2,3} s2 := s[:] s = s[:cap(s)]
