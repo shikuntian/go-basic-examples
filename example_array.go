@@ -1,8 +1,9 @@
 //数组AND切片
 package main
 
-import "fmt"
-
+import (
+	"fmt"
+)
 func main() {
 	test_array_a()
 	test_array_c()
